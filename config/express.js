@@ -1,9 +1,9 @@
 var config = require('./config');
+var express = require('express');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
-var express = require('express');
 
 module.exports = function() {
   var app = express();
@@ -14,9 +14,7 @@ module.exports = function() {
 
   // use this code before any route definitions
   app.use(bodyParser.json());
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(flash());
+
   app.use(session({
     saveUninitialized: true,
     resave: true,
@@ -26,8 +24,13 @@ module.exports = function() {
   app.set('views', './app/views');
   app.set('view engine', 'ejs');
 
+  app.use(flash());
+  app.use(passport.initialize());
+  app.use(passport.session());
+
   require('../app/routes/index.server.routes.js')(app);
   require('../app/routes/users.server.routes.js')(app);
+  require('../app/routes/todos.server.routes.js')(app);
 
   app.use(express.static('./public'));
 
