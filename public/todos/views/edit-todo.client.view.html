@@ -19,7 +19,7 @@
                         <a href="#page-top"></a>
                     </li>
 
-                    <li class="page-scroll" data-ng-show="!authentication.user">
+					<li class="page-scroll" data-ng-show="!authentication.user">
                         <a href="/login">Login</a>
                     </li>
                     <li class="page-scroll" data-ng-show="!authentication.user">
@@ -34,7 +34,7 @@
                     </li>
                     <li class="page-scroll" data-ng-show="authentication.user">
                         <a href="/logout">Hello <span data-ng-bind="authentication.user.name" data-ng-show="authentication.user"></span>, Logout?</a>
-                    </li>
+                    </li>                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -43,33 +43,33 @@
     </nav>
 
     <section data-ng-init="findOne()" class="container">
-      <h1>Edit Todo</h1>
-      <form data-ng-submit="update()" novalidate class="form-signin">
-        <div>
-          <label for="title" class="sr-only">Title</label>
-          <div>
-            <input type="text" data-ng-model="todo.title" id="title" placeholder="Title" required autofocus class="form-control">
-          </div>
-        </div>
+		<h1>Edit Todo</h1>
+		<form data-ng-submit="update()" novalidate class="form-signin">
+			<div>
+				<label for="title" class="sr-only">Title</label>
+				<div>
+					<input type="text" data-ng-model="todo.title" id="title" placeholder="Title" required autofocus class="form-control">
+				</div>
+			</div>
 
-        <div>
-            <div>
-                Completed: <input type="checkbox" data-ng-model="todo.completed" ng-checked="todo.completed" name="completed" id="completed" class="form-control" />
-            </div>
-        </div>
-
-        <div>
-            <label for="comment" class="sr-only">Comment</label>
-            <div>
-                <textarea data-ng-model="todo.comment" id="comment" cols="30" rows="10" placeholder="Comment" class="form-control"></textarea>
-            </div>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-lg btn-primary btn-block">Update TODO</button>
-        </div>
-        <div data-ng-show="error">
-            <strong data-ng-bind="error"></strong>
-        </div>
-    </form>
-  </section>
+			<div>
+				<div>
+					Completed: <input type="checkbox" data-ng-model="todo.completed" ng-checked="todo.completed" name="completed" id="completed" class="form-control" />
+				</div>
+			</div>
+			
+			<div>
+				<label for="comment" class="sr-only">Comment</label>
+				<div>
+					<textarea data-ng-model="todo.comment" id="comment" cols="30" rows="10" placeholder="Comment" class="form-control"></textarea>
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-lg btn-primary btn-block">Update TODO</button>
+			</div>
+			<div data-ng-show="error">
+				<strong data-ng-bind="error"></strong>
+			</div>
+		</form>
+	</section>
 </div>

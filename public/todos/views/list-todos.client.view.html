@@ -19,19 +19,19 @@
                         <a href="#page-top"></a>
                     </li>
 
-                    <li class="page-scroll" data-ng-show="!authentication.user">
+					<li class="page-scroll" data-ng-show="!authentication.user">
                         <a href="/login">Login</a>
                     </li>
                     <li class="page-scroll" data-ng-show="!authentication.user">
                         <a href="/register">Register</a>
                     </li>
-
+                    
                     <li class="page-scroll" data-ng-show="authentication.user">
                         <a href="/#!/todos/create">CREATE</a>
                     </li>
                     <li class="page-scroll" data-ng-show="authentication.user">
                         <a href="/logout">Hello <span data-ng-bind="authentication.user.name" data-ng-show="authentication.user"></span>, Logout?</a>
-                    </li>
+                    </li>                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -40,21 +40,21 @@
     </nav>
 
     <section data-ng-init="find()">
-        <div class="container">
-            <h1>Todos</h1>
+		<div class="container">
+			<h1>Todos</h1>
             Show completed: <input type="checkbox" ng-model="showcompleted" ng-init="showcompleted=true">
-            <ul>
-                <li data-ng-repeat="todo in todos" ng-if="showcompleted && todo.completed || !todo.completed">
-                    <a data-ng-href="#!/todos/{{todo._id}}" data-ng-bind="todo.title" ng-class="todo.completed?'completed':''"></a>
-                    (<small data-ng-bind="todo.created | date:'short'"></small>)
-                    <br>
-
-                    <small data-ng-bind="todo.comment" class="comment"></small>
-                </li>
-            </ul>
-            <div data-ng-hide="!todos || todos.length">
-                No todos yet, why don't you <a href="/#!/todos/create">create one</a>?
-            </div>
-        </div>
-    </section>
+			<ul>
+				<li data-ng-repeat="todo in todos" ng-if="showcompleted && todo.completed || !todo.completed">
+					<a data-ng-href="#!/todos/{{todo._id}}" data-ng-bind="todo.title" ng-class="todo.completed?'completed':''"></a>
+					(<small data-ng-bind="todo.created | date:'short'"></small>)
+					<br>					
+					
+					<small data-ng-bind="todo.comment" class="comment"></small>
+				</li>
+			</ul>
+			<div data-ng-hide="!todos || todos.length">
+				No todos yet, why don't you <a href="/#!/todos/create">create one</a>?
+			</div>
+		</div>
+	</section>
 </div>

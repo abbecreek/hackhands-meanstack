@@ -165,7 +165,7 @@ exports.delete = function(req, res, next) {
 		} else {
 			res.json(req.user);
 		}
-	});
+	})
 };
 
 exports.requiresLogin = function(req, res, next) {
